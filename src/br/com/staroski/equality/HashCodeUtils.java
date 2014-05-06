@@ -2,18 +2,18 @@ package br.com.staroski.equality;
 
 
 /**
- * Esta classe utilitária disponibiliza métodos que permitem a construção fácil de métodos <code>hashCode</code>.<BR>
+ * Esta classe utilitária disponibiliza m&eacute;todos que permitem a constru&ccedil;ão fácil de m&eacute;todos <code>hashCode</code>.<BR>
  * <BR>
- * Regras para a implementação do <code>hashCode</code>:<BR>
- * - se uma classe sobrescreve o <code>equals</code>, ela deve sobrescrever o <code>hashCode</code> também;<BR>
+ * Regras para a implementa&ccedil;ão do <code>hashCode</code>:<BR>
+ * - se uma classe sobrescreve o <code>equals</code>, ela deve sobrescrever o <code>hashCode</code> tamb&eacute;m;<BR>
  * - se ambos são sobrescritos, <code>equals</code> e <code>hashCode</code> devem usar o mesmo conjunto de campos;<BR>
- * - se o <code>equals</code> entre dois objetos é <code>true</code>, o <code>hashCode</code> desses objetos deve ser o mesmo;<BR>
- * - se o objeto for imutável, então o <code>hashCode</code> é candidato para <I>cache</I> e <i>lazy initialization</I>;<BR>
+ * - se o <code>equals</code> entre dois objetos &eacute; <code>true</code>, o <code>hashCode</code> desses objetos deve ser o mesmo;<BR>
+ * - se o objeto for imutável, então o <code>hashCode</code> &eacute; candidato para <I>cache</I> e <i>lazy initialization</I>;<BR>
  * <BR>
- * É bastante comum ouvir desenvolvedores Java com pouco conhecimento afirmarem que o <code>hashCode</code> obtém um identificador único (<I>unique id</I>) do objeto.<BR>
- * <B>É importante salientar que isso não é verdade, o <code>hashCode</code> não é um identificador único!</B><BR>
+ * &Eacute; bastante comum ouvir desenvolvedores Java com pouco conhecimento afirmarem que o <code>hashCode</code> obt&eacute;m um identificador único (<I>unique id</I>) do objeto.<BR>
+ * <B>&Eacute; importante salientar que isso não &eacute; verdade, o <code>hashCode</code> não &eacute; um identificador único!</B><BR>
  * <BR>
- * Exemplo de metodo <code>hashCode</code> que utiliza contribuição de varios campos:
+ * Exemplo de metodo <code>hashCode</code> que utiliza contribui&ccedil;ão de varios campos:
  * 
  * <pre>
  * import static br.com.staroski.equality.HashCodeUtils.*;
@@ -63,7 +63,7 @@ public final class HashCodeUtils {
     public static final int NON_ADDICTIVE = 0;
 
     /**
-     * Semente para calcular <code>hashCode</code>s formados pela contribuição de dois ou mais campos.
+     * Semente para calcular <code>hashCode</code>s formados pela contribui&ccedil;ão de dois ou mais campos.
      * 
      * @see #NON_ADDICTIVE
      */
@@ -303,7 +303,7 @@ public final class HashCodeUtils {
 
     /**
      * Calcula o <I>hash</I> de um array de <tt>Object</tt>.<BR>
-     * Vale lembrar que, independente do tipo de dado, <B>qualquer array com mais de uma dimensão, é um array de <tt>Object</tt></B>.
+     * Vale lembrar que, independente do tipo de dado, <B>qualquer array com mais de uma dimensão, &eacute; um array de <tt>Object</tt></B>.
      * 
      * @param seed A semente ({@link #ADDICTIVE aditiva} ou {@link #NON_ADDICTIVE não aditiva}) para o cálulo do <I>hash</I>
      * @param array O array do qual se deseja obter o <I>hash</I>.
@@ -351,7 +351,7 @@ public final class HashCodeUtils {
         return hash(seed, hash);
     }
 
-    // Calcula o hash de um Object assumindo que ele é um array.
+    // Calcula o hash de um Object assumindo que ele &eacute; um array.
     private static int hashArray(final int seed, final Object object) {
         if (object instanceof byte[]) return hash(seed, (byte[]) object);
         if (object instanceof boolean[]) return hash(seed, (boolean[]) object);

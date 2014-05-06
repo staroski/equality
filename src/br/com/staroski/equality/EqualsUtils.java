@@ -2,24 +2,24 @@ package br.com.staroski.equality;
 
 
 /**
- * Esta classe utilitária disponibiliza métodos que permitem a construção fácil de métodos <code>equals</code>.<BR>
+ * Esta classe utilitária disponibiliza m&eacute;todos que permitem a constru&ccedil;ão fácil de m&eacute;todos <code>equals</code>.<BR>
  * <BR>
- * Todos os objetos possuem uma <B>identidade</B> (sua referência na memória) e um <B>estado</B> (os seus dados).<BR>
- * O operador <code>==</code> sempre compara a identidade, assim como a implementação <I>default</I> do método <code>equals</code>.<BR>
+ * Todos os objetos possuem uma <B>identidade</B> (sua refer&ecirc;ncia na memória) e um <B>estado</B> (os seus dados).<BR>
+ * O operador <code>==</code> sempre compara a identidade, assim como a implementa&ccedil;ão <I>default</I> do m&eacute;todo <code>equals</code>.<BR>
  * <BR>
- * As vezes a implementação <I>default</I> do <code>equals</code> possui o comportamento desejado (como por exemplo numa <I>type-safe enumeration</I>), mas o <code>equals</code> deveria geralmente
+ * As vezes a implementa&ccedil;ão <I>default</I> do <code>equals</code> possui o comportamento desejado (como por exemplo numa <I>type-safe enumeration</I>), mas o <code>equals</code> deveria geralmente
  * comparar o estado, não a identidade.<BR>
- * Isso é particularmente verdade para classes <I>data-centric</I> que mapeiam registros de bancos de dados.<BR>
+ * Isso &eacute; particularmente verdade para classes <I>data-centric</I> que mapeiam registros de bancos de dados.<BR>
  * <BR>
- * <code>hashCode</code> e <code>equals</code> possuem uma relação próxima:<BR>
- * - se voce sobrescreve <code>equals</code>, voce deve sobrescrever também o <code>hashCode</code>.<BR>
+ * <code>hashCode</code> e <code>equals</code> possuem uma rela&ccedil;ão próxima:<BR>
+ * - se voce sobrescreve <code>equals</code>, voce deve sobrescrever tamb&eacute;m o <code>hashCode</code>.<BR>
  * - <code>hashCode</code> deve ser igual para objetos <code>equals</code> entre si.<BR>
- * - <code>equals</code> e <code>hashCode</code> deve depender do mesmo conjunto de campos. Não é necessário utilizar todos os campos, somente os campos significativos. Por exemplo, um campo que é
+ * - <code>equals</code> e <code>hashCode</code> deve depender do mesmo conjunto de campos. Não &eacute; necessário utilizar todos os campos, somente os campos significativos. Por exemplo, um campo que &eacute;
  * calculado a partir de outros campos, poderia ser omitido do <code>equals</code> e <code>hashCode</code>.<BR>
  * <BR>
- * Objetos inseridos em <I>lists</I>, <I>sets</I>, ou <I>maps</I> (tanto como chave quanto como valor) deveriam ter uma definição apropriada do <code>equals</code>.<BR>
- * Se você extende uma classe concreta e adiciona um novo campo que contribui para o <code>equals</code>, então não é possível escrever um <code>equals</code> perfeitamente correto para esta classe
- * nova. Ao invés disso, você deveria usar composição ao invés de herança.<BR>
+ * Objetos inseridos em <I>lists</I>, <I>sets</I>, ou <I>maps</I> (tanto como chave quanto como valor) deveriam ter uma defini&ccedil;ão apropriada do <code>equals</code>.<BR>
+ * Se voc&ecirc; extende uma classe concreta e adiciona um novo campo que contribui para o <code>equals</code>, então não &eacute; possível escrever um <code>equals</code> perfeitamente correto para esta classe
+ * nova. Ao inv&eacute;s disso, voc&ecirc; deveria usar composi&ccedil;ão ao inv&eacute;s de heran&ccedil;a.<BR>
  * <BR>
  * Ao implementar o <code>equals</code>, os campos são comparados de forma diferente dependendo do seu tipo:<BR>
  * - campos do tipo object, incluindo collections: usam <code>equals</code><BR>
@@ -30,10 +30,10 @@ package br.com.staroski.equality;
  * - campos <code>double</code>: são convertidos para <code>long</code> utilizando <code>Double.doubleToLongBits</code> e em seguida comparados com <code>==</code><BR>
  * - campos do tipo array: comparam cada elemento do array aplicando as regras acima<BR>
  * <BR>
- * É importante notar que se um campo é do tipo <I>wrapper class</I>, então a implementação do <code>equals</code> é simples, pois ela só faz uma coisa: invoca o <code>equals</code> recursivamente.<BR>
+ * &Eacute; importante notar que se um campo &eacute; do tipo <I>wrapper class</I>, então a implementa&ccedil;ão do <code>equals</code> &eacute; simples, pois ela só faz uma coisa: invoca o <code>equals</code> recursivamente.<BR>
  * <BR>
- * Em um método <code>equals</code> é, geralmente, melhor ordenar as comparações dos campos de acordo com a significância do campo, isto é, campos mais significativos, deveriam ser avaliados primeiro.
- * Isso permite que o operador lógico <code>&&</code> minimize o tempo de execução.<BR>
+ * Em um m&eacute;todo <code>equals</code> &eacute;, geralmente, melhor ordenar as compara&ccedil;ões dos campos de acordo com a signific&acirc;ncia do campo, isto &eacute;, campos mais significativos, deveriam ser avaliados primeiro.
+ * Isso permite que o operador lógico <code>&&</code> minimize o tempo de execu&ccedil;ão.<BR>
  * <BR>
  * Exemplo prático:
  * 
@@ -348,7 +348,7 @@ public final class EqualsUtils {
 
     /**
      * Compara dois arrays de <tt>Object</tt>.<BR>
-     * Vale lembrar que, independente do tipo de dado, <B>qualquer array com mais de uma dimensão, é um array de <tt>Object</tt></B>.
+     * Vale lembrar que, independente do tipo de dado, <B>qualquer array com mais de uma dimensão, &eacute; um array de <tt>Object</tt></B>.
      * 
      * @param array1 O primeiro array.
      * @param array2 O segundo array.

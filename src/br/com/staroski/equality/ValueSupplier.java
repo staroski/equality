@@ -1,7 +1,7 @@
 package br.com.staroski.equality;
 
 /**
- * Interface para fornecer valores às {@link EqualityStrategy estratégias} criadas pelo método {@link EqualityStrategy#valueBased(ValueSupplier) valueBased(ValueSupplier)}.
+ * Interface para fornecer valores &agrave;s {@link EqualityStrategy estrat&eacute;gias} criadas pelo m&eacute;todo {@link EqualityStrategy#valueBased(ValueSupplier) valueBased(ValueSupplier)}.
  * 
  * @author Ricardo Artur Staroski
  * @see EqualityStrategy#valueBased(ValueSupplier)
@@ -9,7 +9,7 @@ package br.com.staroski.equality;
 public interface ValueSupplier {
 
     /**
-     * Obtém os valores utilizados no cálculo do <code>hashCode</code> e <code>equals</code>.
+     * Obt&eacute;m os valores utilizados no cálculo do <code>hashCode</code> e <code>equals</code>.
      * 
      * @return Um array com os valores utilizados no cálculo do <code>hashCode</code> e <code>equals</code>.
      */

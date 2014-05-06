@@ -1,9 +1,9 @@
 /**
- * Neste pacote encontram-se classes que auxiliam na implementação simplificada dos métodos <code>hashCode</code> e <code>equals</code>.<BR>
+ * Neste pacote encontram-se classes que auxiliam na implementa&ccedil;ão simplificada dos m&eacute;todos <code>hashCode</code> e <code>equals</code>.<BR>
  * <BR>
  * Para entender melhor, veja os 3 exemplos abaixo.<BR>
  * <BR>
- * 1 - Classe com exemplo padrão de implementação do <code>hashCode</code> e <code>equals</code> que leva em consideração cada atributo.
+ * 1 - Classe com exemplo padrão de implementa&ccedil;ão do <code>hashCode</code> e <code>equals</code> que leva em considera&ccedil;ão cada atributo.
  * 
  * <PRE>
  * import java.util.Arrays;
