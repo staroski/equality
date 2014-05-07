@@ -2,9 +2,9 @@ package br.com.staroski.equality;
 
 /**
  * Superclasse para criar estrat&eacute;gias de equival&ecirc;ncia para objetos.<BR>
- * Estas estrat&eacute;gias permitem a implementar os m&eacute;todos <code>hashCode</code> e <code>equals</code> de forma ainda mais fácil do que usando as classes {@link EqualsUtils} e {@link HashCodeUtils}.<BR>
+ * Estas estrat&eacute;gias permitem a implementar os m&eacute;todos <code>hashCode</code> e <code>equals</code> de forma ainda mais f&aacute;cil do que usando as classes {@link EqualsUtils} e {@link HashCodeUtils}.<BR>
  * <BR>
- * Abaixo está uma classe que utiliza {@link EqualsUtils} e {@link HashCodeUtils}.
+ * Abaixo est&aacute; uma classe que utiliza {@link EqualsUtils} e {@link HashCodeUtils}.
  * 
  * <PRE>
  * import static br.com.staroski.equality.EqualsUtils.*;
@@ -39,7 +39,7 @@ package br.com.staroski.equality;
  * }
  * </PRE>
  * 
- * As implementa&ccedil;ões do <code>hashCode</code> e <code>equals</code> desta classe podem ser simplificadas, utilizando uma {@link EqualityStrategy estrat&eacute;gia} baseada nos
+ * As implementa&ccedil;&otilde;es do <code>hashCode</code> e <code>equals</code> desta classe podem ser simplificadas, utilizando uma {@link EqualityStrategy estrat&eacute;gia} baseada nos
  * {@link EqualityStrategy#fieldBased(Object) atributos} da classe, conforme o exemplo abaixo:
  * 
  * <PRE>
@@ -130,7 +130,7 @@ public abstract class EqualityStrategy {
      * Verifica se o objeto encapsulado por esta {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia} &eacute; equivalente ao objeto passado por parametro.
      * 
      * @param object O objeto a ser comparado com o objeto encapsulado por esta {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia}.
-     * @return <code>true</code> se forem equivalentes e <code>false</code> caso contrário.
+     * @return <code>true</code> se forem equivalentes e <code>false</code> caso contr&aacute;rio.
      */
     public abstract boolean equals(Object object);
 

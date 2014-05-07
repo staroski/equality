@@ -1,9 +1,9 @@
 /**
- * Neste pacote encontram-se classes que auxiliam na implementa&ccedil;ão simplificada dos m&eacute;todos <code>hashCode</code> e <code>equals</code>.<BR>
+ * Neste pacote encontram-se classes que auxiliam na implementa&ccedil;&atilde;o simplificada dos m&eacute;todos <code>hashCode</code> e <code>equals</code>.<BR>
  * <BR>
  * Para entender melhor, veja os 3 exemplos abaixo.<BR>
  * <BR>
- * 1 - Classe com exemplo padrão de implementa&ccedil;ão do <code>hashCode</code> e <code>equals</code> que leva em considera&ccedil;ão cada atributo.
+ * 1 - Classe com exemplo padr&atilde;o de implementa&ccedil;&atilde;o do <code>hashCode</code> e <code>equals</code> que leva em considera&ccedil;&atilde;o cada atributo.
  * 
  * <PRE>
  * import java.util.Arrays;
@@ -53,8 +53,8 @@
  * </PRE>
  * 
  * <BR>
- * 2 - Podemos simplificar o código da classe acima, utilizando as classes {@link br.com.staroski.equality.HashCodeUtils} e {@link br.com.staroski.equality.EqualsUtils}.<BR>
- * Veja o código refatorado:
+ * 2 - Podemos simplificar o c&oacute;digo da classe acima, utilizando as classes {@link br.com.staroski.equality.HashCodeUtils} e {@link br.com.staroski.equality.EqualsUtils}.<BR>
+ * Veja o c&oacute;digo refatorado:
  * 
  * <PRE>
  * import static br.com.staroski.equality.EqualsUtils.*;
@@ -90,8 +90,8 @@
  * </PRE>
  * 
  * <BR>
- * 3 - Podemos simplificar o código acima mais ainda, utilizando a classe {@link br.com.staroski.equality.EqualityStrategy}.<BR>
- * Veja como fica o código refatorado:
+ * 3 - Podemos simplificar o c&oacute;digo acima mais ainda, utilizando a classe {@link br.com.staroski.equality.EqualityStrategy}.<BR>
+ * Veja como fica o c&oacute;digo refatorado:
  * 
  * <PRE>
  * import static br.com.staroski.equality.EqualityStrategy.*;

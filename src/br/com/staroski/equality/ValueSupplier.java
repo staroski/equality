@@ -9,9 +9,9 @@ package br.com.staroski.equality;
 public interface ValueSupplier {
 
     /**
-     * Obt&eacute;m os valores utilizados no cálculo do <code>hashCode</code> e <code>equals</code>.
+     * Obt&eacute;m os valores utilizados no c&aacute;lculo do <code>hashCode</code> e <code>equals</code>.
      * 
-     * @return Um array com os valores utilizados no cálculo do <code>hashCode</code> e <code>equals</code>.
+     * @return Um array com os valores utilizados no c&aacute;lculo do <code>hashCode</code> e <code>equals</code>.
      */
     Object[] values();
 }
