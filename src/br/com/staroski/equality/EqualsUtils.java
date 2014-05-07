@@ -18,7 +18,7 @@ package br.com.staroski.equality;
  * calculado a partir de outros campos, poderia ser omitido do <code>equals</code> e <code>hashCode</code>.<BR>
  * <BR>
  * Objetos inseridos em <I>lists</I>, <I>sets</I>, ou <I>maps</I> (tanto como chave quanto como valor) deveriam ter uma defini&ccedil;&atilde;o apropriada do <code>equals</code>.<BR>
- * Se voc&ecirc; extende uma classe concreta e adiciona um novo campo que contribui para o <code>equals</code>, ent&atilde;o n&atilde;o &eacute; possível escrever um <code>equals</code> perfeitamente correto para esta classe
+ * Se voc&ecirc; extende uma classe concreta e adiciona um novo campo que contribui para o <code>equals</code>, ent&atilde;o n&atilde;o &eacute; poss&iacute;vel escrever um <code>equals</code> perfeitamente correto para esta classe
  * nova. Ao inv&eacute;s disso, voc&ecirc; deveria usar composi&ccedil;&atilde;o ao inv&eacute;s de heran&ccedil;a.<BR>
  * <BR>
  * Ao implementar o <code>equals</code>, os campos s&atilde;o comparados de forma diferente dependendo do seu tipo:<BR>

@@ -10,8 +10,8 @@ package br.com.staroski.equality;
  * - se o <code>equals</code> entre dois objetos &eacute; <code>true</code>, o <code>hashCode</code> desses objetos deve ser o mesmo;<BR>
  * - se o objeto for imut&aacute;vel, ent&atilde;o o <code>hashCode</code> &eacute; candidato para <I>cache</I> e <i>lazy initialization</I>;<BR>
  * <BR>
- * &Eacute; bastante comum ouvir desenvolvedores Java com pouco conhecimento afirmarem que o <code>hashCode</code> obt&eacute;m um identificador único (<I>unique id</I>) do objeto.<BR>
- * <B>&Eacute; importante salientar que isso n&atilde;o &eacute; verdade, o <code>hashCode</code> n&atilde;o &eacute; um identificador único!</B><BR>
+ * &Eacute; bastante comum ouvir desenvolvedores Java com pouco conhecimento afirmarem que o <code>hashCode</code> obt&eacute;m um identificador &uacute;nico (<I>unique id</I>) do objeto.<BR>
+ * <B>&Eacute; importante salientar que isso n&atilde;o &eacute; verdade, o <code>hashCode</code> n&atilde;o &eacute; um identificador &uacute;nico!</B><BR>
  * <BR>
  * Exemplo de metodo <code>hashCode</code> que utiliza contribui&ccedil;&atilde;o de varios campos:
  * 
@@ -70,7 +70,7 @@ public final class HashCodeUtils {
     public static final int ADDICTIVE = 1;
 
     /**
-     * Número primo ímpar utilizado nos calculos.
+     * N&uacute;mero primo &iacute;mpar utilizado nos calculos.
      */
     public static final int PRIME = 31;
 

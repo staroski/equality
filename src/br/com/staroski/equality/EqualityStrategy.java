@@ -65,7 +65,7 @@ package br.com.staroski.equality;
  * 
  * <BR>
  * Esta classe disponibiliza tr&ecirc;s {@link EqualityStrategy estrat&eacute;gias} prontas baseadas na {@link #referenceBased(Object) refer&ecirc;ncia} do objeto, nos {@link #fieldBased(Object) atributos} do objeto e
- * em {@link #valueBased(ValueSupplier) valores} específicos.<BR>
+ * em {@link #valueBased(ValueSupplier) valores} espec&iacute;ficos.<BR>
  * <BR>
  * Instancias desta classe possuem dois m&eacute;todos especiais: um para criar uma {@link EqualityStrategy estrat&eacute;gia} que mant&eacute;m um {@link #cached() cache} do <code>hashCode</code> da
  * {@link EqualityStrategy estrat&eacute;gia} original e outro m&eacute;todo para restaurar a {@link EqualityStrategy estrat&eacute;gia} original, isto &eacute;, {@link #uncached() sem o cache}.
