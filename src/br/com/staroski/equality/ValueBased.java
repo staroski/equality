@@ -21,6 +21,6 @@ final class ValueBased extends EqualityStrategy {
     }
 
     public int hashCode() {
-        return hash(NON_ADDICTIVE, ((ValueSupplier) target).values());
+        return hash(SINGLE_VALUE, ((ValueSupplier) target).values());
     }
 }

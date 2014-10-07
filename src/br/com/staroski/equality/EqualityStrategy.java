@@ -17,7 +17,7 @@ package br.com.staroski.equality;
  *     private String[] field3;
  *  
  *     public int hashCode() {
- *         int hash = ADDICTIVE;
+ *         int hash = MULTI_FIELD;
  *         hash = hash(hash, field1);
  *         hash = hash(hash, field2);
  *         hash = hash(hash, field3);
@@ -43,7 +43,7 @@ package br.com.staroski.equality;
  * {@link EqualityStrategy#fieldBased(Object) atributos} da classe, conforme o exemplo abaixo:
  * 
  * <PRE>
- * import static br.com.staroski.equality.strategies.EqualityStrategy.*;
+ * import static br.com.staroski.equality.EqualityStrategy.*;
  * 
  * class MyClass {
  * 

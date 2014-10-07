@@ -37,7 +37,7 @@ final class FieldBased extends EqualityStrategy {
     }
 
     public int hashCode() {
-        return hash(NON_ADDICTIVE, fieldValues(target));
+        return hash(SINGLE_VALUE, fieldValues(target));
     }
 
     private Object[] fieldValues(Object target) {

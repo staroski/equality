@@ -25,7 +25,7 @@ package br.com.staroski.equality;
  *     private String[] field3; // array
  *     
  *     public int hashCode(){
- *         int hash = ADDICTIVE;
+ *         int hash = MULTI_VALUE;
  *         hash = hash(hash, field1);
  *         hash = hash(hash, field2);
  *         hash = hash(hash, field3);
@@ -44,7 +44,7 @@ package br.com.staroski.equality;
  *     private int field;
  *     
  *     public int hashCode(){
- *         return hash(NON_ADDICTIVE, field);
+ *         return hash(SINGLE_VALUE, field);
  *     }
  * }
  * </pre>
@@ -58,26 +58,26 @@ public final class HashCodeUtils {
     /**
      * Semente para calcular <code>hashCode</code>s de um unico campo.
      * 
-     * @see #ADDICTIVE
+     * @see #MULTI_VALUE
      */
-    public static final int NON_ADDICTIVE = 0;
+    public static final int SINGLE_VALUE = 0;
 
     /**
      * Semente para calcular <code>hashCode</code>s formados pela contribui&ccedil;&atilde;o de dois ou mais campos.
      * 
-     * @see #NON_ADDICTIVE
+     * @see #SINGLE_VALUE
      */
-    public static final int ADDICTIVE = 1;
+    public static final int MULTI_VALUE = 1;
 
     /**
      * N&uacute;mero primo &iacute;mpar utilizado nos calculos.
      */
-    public static final int PRIME = 31;
+    private static final int PRIME = 31;
 
     /**
      * Calcula o <I>hash</I> de um valor <tt>boolean</tt>.
      * 
-     * @param seed A semente ({@link #ADDICTIVE aditiva} ou {@link #NON_ADDICTIVE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
      * @param value O valor do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
@@ -88,7 +88,7 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um array de <tt>boolean</tt>.
      * 
-     * @param seed A semente ({@link #ADDICTIVE aditiva} ou {@link #NON_ADDICTIVE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
      * @param array O array do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
@@ -97,7 +97,7 @@ public final class HashCodeUtils {
             return hash(seed, 0);
         }
         final int length = array.length;
-        int hash = ADDICTIVE;
+        int hash = MULTI_VALUE;
         for (int i = 0; i < length; ++i) {
             hash = hash(hash, array[i]);
         }
@@ -107,7 +107,7 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um valor <tt>byte</tt>.
      * 
-     * @param seed A semente ({@link #ADDICTIVE aditiva} ou {@link #NON_ADDICTIVE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
      * @param value O valor do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
@@ -118,7 +118,7 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um array de <tt>byte</tt>.
      * 
-     * @param seed A semente ({@link #ADDICTIVE aditiva} ou {@link #NON_ADDICTIVE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
      * @param array O array do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
@@ -127,7 +127,7 @@ public final class HashCodeUtils {
             return hash(seed, 0);
         }
         final int length = array.length;
-        int hash = ADDICTIVE;
+        int hash = MULTI_VALUE;
         for (int i = 0; i < length; ++i) {
             hash = hash(hash, array[i]);
         }
@@ -137,7 +137,7 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um valor <tt>char</tt>.
      * 
-     * @param seed A semente ({@link #ADDICTIVE aditiva} ou {@link #NON_ADDICTIVE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
      * @param value O valor do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
@@ -148,7 +148,7 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um array de <tt>char</tt>.
      * 
-     * @param seed A semente ({@link #ADDICTIVE aditiva} ou {@link #NON_ADDICTIVE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
      * @param array O array do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
@@ -157,7 +157,7 @@ public final class HashCodeUtils {
             return hash(seed, 0);
         }
         final int length = array.length;
-        int hash = ADDICTIVE;
+        int hash = MULTI_VALUE;
         for (int i = 0; i < length; ++i) {
             hash = hash(hash, array[i]);
         }
@@ -167,7 +167,7 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um valor <tt>double</tt>.
      * 
-     * @param seed A semente ({@link #ADDICTIVE aditiva} ou {@link #NON_ADDICTIVE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
      * @param value O valor do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
@@ -178,7 +178,7 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um array de <tt>double</tt>.
      * 
-     * @param seed A semente ({@link #ADDICTIVE aditiva} ou {@link #NON_ADDICTIVE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
      * @param array O array do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
@@ -187,7 +187,7 @@ public final class HashCodeUtils {
             return hash(seed, 0);
         }
         final int length = array.length;
-        int hash = ADDICTIVE;
+        int hash = MULTI_VALUE;
         for (int i = 0; i < length; ++i) {
             hash = hash(hash, array[i]);
         }
@@ -197,7 +197,7 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um valor <tt>float</tt>.
      * 
-     * @param seed A semente ({@link #ADDICTIVE aditiva} ou {@link #NON_ADDICTIVE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
      * @param value O valor do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
@@ -208,7 +208,7 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um array de <tt>float</tt>.
      * 
-     * @param seed A semente ({@link #ADDICTIVE aditiva} ou {@link #NON_ADDICTIVE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
      * @param array O array do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
@@ -217,7 +217,7 @@ public final class HashCodeUtils {
             return hash(seed, 0);
         }
         final int length = array.length;
-        int hash = ADDICTIVE;
+        int hash = MULTI_VALUE;
         for (int i = 0; i < length; ++i) {
             hash = hash(hash, array[i]);
         }
@@ -227,7 +227,7 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um valor <tt>int</tt>.
      * 
-     * @param seed A semente ({@link #ADDICTIVE aditiva} ou {@link #NON_ADDICTIVE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
      * @param value O valor do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
@@ -238,7 +238,7 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um array de <tt>int</tt>.
      * 
-     * @param seed A semente ({@link #ADDICTIVE aditiva} ou {@link #NON_ADDICTIVE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
      * @param array O array do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
@@ -247,7 +247,7 @@ public final class HashCodeUtils {
             return hash(seed, 0);
         }
         final int length = array.length;
-        int hash = ADDICTIVE;
+        int hash = MULTI_VALUE;
         for (int i = 0; i < length; ++i) {
             hash = hash(hash, array[i]);
         }
@@ -257,7 +257,7 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um valor <tt>long</tt>.
      * 
-     * @param seed A semente ({@link #ADDICTIVE aditiva} ou {@link #NON_ADDICTIVE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
      * @param value O valor do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
@@ -268,7 +268,7 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um array de <tt>long</tt>.
      * 
-     * @param seed A semente ({@link #ADDICTIVE aditiva} ou {@link #NON_ADDICTIVE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
      * @param array O array do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
@@ -277,7 +277,7 @@ public final class HashCodeUtils {
             return hash(seed, 0);
         }
         final int length = array.length;
-        int hash = ADDICTIVE;
+        int hash = MULTI_VALUE;
         for (int i = 0; i < length; ++i) {
             hash = hash(hash, array[i]);
         }
@@ -287,7 +287,7 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um <tt>Object</tt>.
      * 
-     * @param seed A semente ({@link #ADDICTIVE aditiva} ou {@link #NON_ADDICTIVE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
      * @param object O objeto do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
@@ -305,7 +305,7 @@ public final class HashCodeUtils {
      * Calcula o <I>hash</I> de um array de <tt>Object</tt>.<BR>
      * Vale lembrar que, independente do tipo de dado, <B>qualquer array com mais de uma dimens&atilde;o, &eacute; um array de <tt>Object</tt></B>.
      * 
-     * @param seed A semente ({@link #ADDICTIVE aditiva} ou {@link #NON_ADDICTIVE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
      * @param array O array do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
@@ -314,7 +314,7 @@ public final class HashCodeUtils {
             return hash(seed, 0);
         }
         final int length = array.length;
-        int hash = ADDICTIVE;
+        int hash = MULTI_VALUE;
         for (int i = 0; i < length; ++i) {
             hash = hash(hash, array[i]);
         }
@@ -324,7 +324,7 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um valor <tt>short</tt>.
      * 
-     * @param seed A semente ({@link #ADDICTIVE aditiva} ou {@link #NON_ADDICTIVE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
      * @param value O valor do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
@@ -335,7 +335,7 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um array de <tt>short</tt>.
      * 
-     * @param seed A semente ({@link #ADDICTIVE aditiva} ou {@link #NON_ADDICTIVE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
      * @param array O array do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
@@ -344,7 +344,7 @@ public final class HashCodeUtils {
             return hash(seed, 0);
         }
         final int length = array.length;
-        int hash = ADDICTIVE;
+        int hash = MULTI_VALUE;
         for (int i = 0; i < length; ++i) {
             hash = hash(hash, array[i]);
         }
