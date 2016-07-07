@@ -4,6 +4,8 @@ package br.com.staroski.equality;
 /**
  * Esta classe utilit&aacute;ria disponibiliza m&eacute;todos que permitem a constru&ccedil;&atilde;o f&aacute;cil de m&eacute;todos <code>hashCode</code>.<BR>
  * <BR>
+ * <B>Obs:</B> Utilizar a classe {@link HashCodeBuilder} torna o c&oacute;digo mais leg&iacute;vel do que utilizar a classe {@link HashCodeUtils}.<BR> 
+ * <BR>
  * Regras para a implementa&ccedil;&atilde;o do <code>hashCode</code>:<BR>
  * - se uma classe sobrescreve o <code>equals</code>, ela deve sobrescrever o <code>hashCode</code> tamb&eacute;m;<BR>
  * - se ambos s&atilde;o sobrescritos, <code>equals</code> e <code>hashCode</code> devem usar o mesmo conjunto de campos;<BR>
@@ -52,6 +54,7 @@ package br.com.staroski.equality;
  * @author Ricardo Artur Staroski
  * @see EqualsUtils
  * @see EqualityStrategy
+ * @see HashCodeBuilder
  */
 public final class HashCodeUtils {
 
