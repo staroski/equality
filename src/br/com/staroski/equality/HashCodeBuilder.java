@@ -24,7 +24,10 @@ package br.com.staroski.equality;
  * 	private String[] field3; // array
  * 
  * 	public int hashCode() {
- * 		return hash(field1).and(field2).and(field3).hashCode();
+ * 		return hash(field1). //
+ * 				and(field2). //
+ * 				and(field3). //
+ * 				code();
  * 	}
  * }
  * </pre>
@@ -39,7 +42,7 @@ package br.com.staroski.equality;
  * 	private int field;
  * 
  * 	public int hashCode() {
- * 		return hash(field).hashCode();
+ * 		return hash(field).code();
  * 	}
  * }
  * </pre>
@@ -51,12 +54,15 @@ package br.com.staroski.equality;
  */
 public abstract class HashCodeBuilder {
 
+	/**
+	 * <I>Builder</I> que permite adicionar contribuições ao cálculo do <code>hashCode</code>
+	 */
 	public static abstract class Builder {
 
-		protected final Number seed;
+		protected final Number hashSeed;
 
 		protected Builder(Number seed) {
-			this.seed = seed;
+			this.hashSeed = seed;
 		}
 
 		public Builder and(boolean value) {
@@ -131,18 +137,25 @@ public abstract class HashCodeBuilder {
 			return new ShortArrayBuilder(appendSeed(), values);
 		}
 
-		@Override
-		public final int hashCode() {
-			return hashCode(seed.intValue());
+		/**
+		 * @return O <code>hashCode</code> calculado.
+		 */
+		public final int code() {
+			return compute(hashSeed.intValue());
 		}
 
-		protected abstract int hashCode(int seed);
+		@Override
+		public final int hashCode() {
+			return code();
+		}
+
+		protected abstract int compute(int seed);
 
 		private Number appendSeed() {
-			if (seed == SINGLE_SEED) {
-				return Integer.valueOf(hashCode(HashCodeUtils.MULTI_VALUE));
+			if (hashSeed == SINGLE_SEED) {
+				return Integer.valueOf(compute(HashCodeUtils.MULTI_VALUE));
 			}
-			return Integer.valueOf(hashCode(seed.intValue()));
+			return Integer.valueOf(compute(hashSeed.intValue()));
 		}
 	}
 
@@ -156,7 +169,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int hashCode(int seed) {
+		protected int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -171,7 +184,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int hashCode(int seed) {
+		protected int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -186,7 +199,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int hashCode(int seed) {
+		protected int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -201,7 +214,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int hashCode(int seed) {
+		protected int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -216,7 +229,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int hashCode(int seed) {
+		protected int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -231,7 +244,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int hashCode(int seed) {
+		protected int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -246,7 +259,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int hashCode(int seed) {
+		protected int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -261,7 +274,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int hashCode(int seed) {
+		protected int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -276,7 +289,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int hashCode(int seed) {
+		protected int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -291,7 +304,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int hashCode(int seed) {
+		protected int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -306,7 +319,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int hashCode(int seed) {
+		protected int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -321,7 +334,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int hashCode(int seed) {
+		protected int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -336,7 +349,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int hashCode(int seed) {
+		protected int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -351,7 +364,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int hashCode(int seed) {
+		protected int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -366,7 +379,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int hashCode(int seed) {
+		protected int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -381,7 +394,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int hashCode(int seed) {
+		protected int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -396,7 +409,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int hashCode(int seed) {
+		protected int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -411,7 +424,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int hashCode(int seed) {
+		protected int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
