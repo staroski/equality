@@ -55,90 +55,225 @@ package br.com.staroski.equality;
 public abstract class HashCodeBuilder {
 
 	/**
-	 * <I>Builder</I> que permite adicionar contribuições ao cálculo do <code>hashCode</code>
+	 * Permite adicionar contribuições ao cálculo do <code>hashCode</code> através dos métodos <code>and</code> e obter o valor do <code>hashCode</code> calculado através do método {@link #code()}<BR>
+	 * Instâncias de {@link Builder} são obtidas através dos métodos <code>hash</code> da classe {@link HashCodeBuilder}
 	 */
 	public static abstract class Builder {
 
-		protected final Number hashSeed;
+		final Number hashSeed;
 
-		protected Builder(Number seed) {
+		/**
+		 * Contrutor
+		 * 
+		 * @param seed
+		 *            Semente para o cálculo do <code>hashCode</code>
+		 */
+		Builder(Number seed) {
 			this.hashSeed = seed;
 		}
 
+		/**
+		 * Adiciona uma contribuição do tipo <t>boolean</t> ao cálculo do <code>hashCode</code>
+		 * 
+		 * @param value
+		 *            A contribuição a ser adicionada
+		 * @return Uma intância de {@link Builder}
+		 */
 		public Builder and(boolean value) {
 			return new BooleanBuilder(appendSeed(), value);
 		}
 
+		/**
+		 * Adiciona uma contribuição do tipo <t>boolean[]</t> ao cálculo do <code>hashCode</code>
+		 * 
+		 * @param value
+		 *            A contribuição a ser adicionada
+		 * @return Uma intância de {@link Builder}
+		 */
 		public Builder and(boolean[] values) {
 			return new BooleanArrayBuilder(appendSeed(), values);
 		}
 
+		/**
+		 * Adiciona uma contribuição do tipo <t>byte</t> ao cálculo do <code>hashCode</code>
+		 * 
+		 * @param value
+		 *            A contribuição a ser adicionada
+		 * @return Uma intância de {@link Builder}
+		 */
 		public Builder and(byte value) {
 			return new ByteBuilder(appendSeed(), value);
 		}
 
+		/**
+		 * Adiciona uma contribuição do tipo <t>byte[]</t> ao cálculo do <code>hashCode</code>
+		 * 
+		 * @param value
+		 *            A contribuição a ser adicionada
+		 * @return Uma intância de {@link Builder}
+		 */
 		public Builder and(byte[] values) {
 			return new ByteArrayBuilder(appendSeed(), values);
 		}
 
+		/**
+		 * Adiciona uma contribuição do tipo <t>char</t> ao cálculo do <code>hashCode</code>
+		 * 
+		 * @param value
+		 *            A contribuição a ser adicionada
+		 * @return Uma intância de {@link Builder}
+		 */
 		public Builder and(char value) {
 			return new CharBuilder(appendSeed(), value);
 		}
 
+		/**
+		 * Adiciona uma contribuição do tipo <t>char[]</t> ao cálculo do <code>hashCode</code>
+		 * 
+		 * @param value
+		 *            A contribuição a ser adicionada
+		 * @return Uma intância de {@link Builder}
+		 */
 		public Builder and(char[] values) {
 			return new CharArrayBuilder(appendSeed(), values);
 		}
 
+		/**
+		 * Adiciona uma contribuição do tipo <t>double</t> ao cálculo do <code>hashCode</code>
+		 * 
+		 * @param value
+		 *            A contribuição a ser adicionada
+		 * @return Uma intância de {@link Builder}
+		 */
 		public Builder and(double value) {
 			return new DoubleBuilder(appendSeed(), value);
 		}
 
+		/**
+		 * Adiciona uma contribuição do tipo <t>double[]</t> ao cálculo do <code>hashCode</code>
+		 * 
+		 * @param value
+		 *            A contribuição a ser adicionada
+		 * @return Uma intância de {@link Builder}
+		 */
 		public Builder and(double[] values) {
 			return new DoubleArrayBuilder(appendSeed(), values);
 		}
 
+		/**
+		 * Adiciona uma contribuição do tipo <t>float</t> ao cálculo do <code>hashCode</code>
+		 * 
+		 * @param value
+		 *            A contribuição a ser adicionada
+		 * @return Uma intância de {@link Builder}
+		 */
 		public Builder and(float value) {
 			return new FloatBuilder(appendSeed(), value);
 		}
 
+		/**
+		 * Adiciona uma contribuição do tipo <t>float[]</t> ao cálculo do <code>hashCode</code>
+		 * 
+		 * @param value
+		 *            A contribuição a ser adicionada
+		 * @return Uma intância de {@link Builder}
+		 */
 		public Builder and(float[] values) {
 			return new FloatArrayBuilder(appendSeed(), values);
 		}
 
+		/**
+		 * Adiciona uma contribuição do tipo <t>int</t> ao cálculo do <code>hashCode</code>
+		 * 
+		 * @param value
+		 *            A contribuição a ser adicionada
+		 * @return Uma intância de {@link Builder}
+		 */
 		public Builder and(int value) {
 			return new IntBuilder(appendSeed(), value);
 		}
 
+		/**
+		 * Adiciona uma contribuição do tipo <t>int[]</t> ao cálculo do <code>hashCode</code>
+		 * 
+		 * @param value
+		 *            A contribuição a ser adicionada
+		 * @return Uma intância de {@link Builder}
+		 */
 		public Builder and(int[] values) {
 			return new IntArrayBuilder(appendSeed(), values);
 		}
 
+		/**
+		 * Adiciona uma contribuição do tipo <t>long</t> ao cálculo do <code>hashCode</code>
+		 * 
+		 * @param value
+		 *            A contribuição a ser adicionada
+		 * @return Uma intância de {@link Builder}
+		 */
 		public Builder and(long value) {
 			return new LongBuilder(appendSeed(), value);
 		}
 
+		/**
+		 * Adiciona uma contribuição do tipo <t>long[]</t> ao cálculo do <code>hashCode</code>
+		 * 
+		 * @param value
+		 *            A contribuição a ser adicionada
+		 * @return Uma intância de {@link Builder}
+		 */
 		public Builder and(long[] values) {
 			return new LongArrayBuilder(appendSeed(), values);
 		}
 
+		/**
+		 * Adiciona uma contribuição do tipo <t>Object</t> ao cálculo do <code>hashCode</code>
+		 * 
+		 * @param value
+		 *            A contribuição a ser adicionada
+		 * @return Uma intância de {@link Builder}
+		 */
 		public Builder and(Object value) {
 			return new ObjectBuilder(appendSeed(), value);
 		}
 
+		/**
+		 * Adiciona uma contribuição do tipo <t>Object[]</t> ao cálculo do <code>hashCode</code>
+		 * 
+		 * @param value
+		 *            A contribuição a ser adicionada
+		 * @return Uma intância de {@link Builder}
+		 */
 		public Builder and(Object[] values) {
 			return new ObjectBuilder(appendSeed(), values);
 		}
 
+		/**
+		 * Adiciona uma contribuição do tipo <t>short</t> ao cálculo do <code>hashCode</code>
+		 * 
+		 * @param value
+		 *            A contribuição a ser adicionada
+		 * @return Uma intância de {@link Builder}
+		 */
 		public Builder and(short value) {
 			return new ShortBuilder(appendSeed(), value);
 		}
 
+		/**
+		 * Adiciona uma contribuição do tipo <t>short[]</t> ao cálculo do <code>hashCode</code>
+		 * 
+		 * @param value
+		 *            A contribuição a ser adicionada
+		 * @return Uma intância de {@link Builder}
+		 */
 		public Builder and(short[] values) {
 			return new ShortArrayBuilder(appendSeed(), values);
 		}
 
 		/**
-		 * @return O <code>hashCode</code> calculado.
+		 * Retorna o <code>hashCode</code> calculado por este {@link Builder}.
+		 * 
+		 * @return O valor do <code>hashCode</code> calculado.
 		 */
 		public final int code() {
 			return compute(hashSeed.intValue());
@@ -149,8 +284,10 @@ public abstract class HashCodeBuilder {
 			return code();
 		}
 
-		protected abstract int compute(int seed);
+		// template para calcular o hashCode
+		abstract int compute(int seed);
 
+		// obtém a semente apropriada para o cálculo do hashCode
 		private Number appendSeed() {
 			if (hashSeed == SINGLE_SEED) {
 				return Integer.valueOf(compute(HashCodeUtils.MULTI_VALUE));
@@ -169,7 +306,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int compute(int seed) {
+		int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -184,7 +321,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int compute(int seed) {
+		int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -199,7 +336,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int compute(int seed) {
+		int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -214,7 +351,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int compute(int seed) {
+		int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -229,7 +366,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int compute(int seed) {
+		int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -244,7 +381,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int compute(int seed) {
+		int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -259,7 +396,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int compute(int seed) {
+		int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -274,7 +411,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int compute(int seed) {
+		int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -289,7 +426,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int compute(int seed) {
+		int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -304,7 +441,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int compute(int seed) {
+		int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -319,7 +456,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int compute(int seed) {
+		int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -334,7 +471,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int compute(int seed) {
+		int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -349,7 +486,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int compute(int seed) {
+		int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -364,7 +501,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int compute(int seed) {
+		int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -379,7 +516,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int compute(int seed) {
+		int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -394,7 +531,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int compute(int seed) {
+		int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -409,7 +546,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int compute(int seed) {
+		int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -424,7 +561,7 @@ public abstract class HashCodeBuilder {
 		}
 
 		@Override
-		protected int compute(int seed) {
+		int compute(int seed) {
 			return HashCodeUtils.hash(seed, value);
 		}
 	}
@@ -432,74 +569,200 @@ public abstract class HashCodeBuilder {
 	// usando "new Number" para não obter um cache do "Integer.valueOf"
 	private static final Number SINGLE_SEED = new Integer(HashCodeUtils.SINGLE_VALUE);
 
+	/**
+	 * Obtém um {@link Builder}para a contribuição do tipo <t>boolean</t> informada
+	 * 
+	 * @param value
+	 *            A contribuição para o cálculo do <code>hashCode</code>
+	 * @return O {@link Builder} criado a partir da contribuição informada
+	 */
 	public static Builder hash(boolean value) {
 		return new BooleanBuilder(SINGLE_SEED, value);
 	}
 
+	/**
+	 * Obtém um {@link Builder}para a contribuição do tipo <t>boolean[]</t> informada
+	 * 
+	 * @param value
+	 *            A contribuição para o cálculo do <code>hashCode</code>
+	 * @return O {@link Builder} criado a partir da contribuição informada
+	 */
 	public static Builder hash(boolean[] values) {
 		return new BooleanArrayBuilder(SINGLE_SEED, values);
 	}
 
+	/**
+	 * Obtém um {@link Builder}para a contribuição do tipo <t>byte</t> informada
+	 * 
+	 * @param value
+	 *            A contribuição para o cálculo do <code>hashCode</code>
+	 * @return O {@link Builder} criado a partir da contribuição informada
+	 */
 	public static Builder hash(byte value) {
 		return new ByteBuilder(SINGLE_SEED, value);
 	}
 
+	/**
+	 * Obtém um {@link Builder}para a contribuição do tipo <t>byte[]</t> informada
+	 * 
+	 * @param value
+	 *            A contribuição para o cálculo do <code>hashCode</code>
+	 * @return O {@link Builder} criado a partir da contribuição informada
+	 */
 	public static Builder hash(byte[] values) {
 		return new ByteArrayBuilder(SINGLE_SEED, values);
 	}
 
+	/**
+	 * Obtém um {@link Builder}para a contribuição do tipo <t>char</t> informada
+	 * 
+	 * @param value
+	 *            A contribuição para o cálculo do <code>hashCode</code>
+	 * @return O {@link Builder} criado a partir da contribuição informada
+	 */
 	public static Builder hash(char value) {
 		return new CharBuilder(SINGLE_SEED, value);
 	}
 
+	/**
+	 * Obtém um {@link Builder}para a contribuição do tipo <t>char[]</t> informada
+	 * 
+	 * @param value
+	 *            A contribuição para o cálculo do <code>hashCode</code>
+	 * @return O {@link Builder} criado a partir da contribuição informada
+	 */
 	public static Builder hash(char[] values) {
 		return new CharArrayBuilder(SINGLE_SEED, values);
 	}
 
+	/**
+	 * Obtém um {@link Builder}para a contribuição do tipo <t>double</t> informada
+	 * 
+	 * @param value
+	 *            A contribuição para o cálculo do <code>hashCode</code>
+	 * @return O {@link Builder} criado a partir da contribuição informada
+	 */
 	public static Builder hash(double value) {
 		return new DoubleBuilder(SINGLE_SEED, value);
 	}
 
+	/**
+	 * Obtém um {@link Builder}para a contribuição do tipo <t>double[]</t> informada
+	 * 
+	 * @param value
+	 *            A contribuição para o cálculo do <code>hashCode</code>
+	 * @return O {@link Builder} criado a partir da contribuição informada
+	 */
 	public static Builder hash(double[] values) {
 		return new DoubleArrayBuilder(SINGLE_SEED, values);
 	}
 
+	/**
+	 * Obtém um {@link Builder}para a contribuição do tipo <t>float</t> informada
+	 * 
+	 * @param value
+	 *            A contribuição para o cálculo do <code>hashCode</code>
+	 * @return O {@link Builder} criado a partir da contribuição informada
+	 */
 	public static Builder hash(float value) {
 		return new FloatBuilder(SINGLE_SEED, value);
 	}
 
+	/**
+	 * Obtém um {@link Builder}para a contribuição do tipo <t>float[]</t> informada
+	 * 
+	 * @param value
+	 *            A contribuição para o cálculo do <code>hashCode</code>
+	 * @return O {@link Builder} criado a partir da contribuição informada
+	 */
 	public static Builder hash(float[] values) {
 		return new FloatArrayBuilder(SINGLE_SEED, values);
 	}
 
+	/**
+	 * Obtém um {@link Builder}para a contribuição do tipo <t>int</t> informada
+	 * 
+	 * @param value
+	 *            A contribuição para o cálculo do <code>hashCode</code>
+	 * @return O {@link Builder} criado a partir da contribuição informada
+	 */
 	public static Builder hash(int value) {
 		return new IntBuilder(SINGLE_SEED, value);
 	}
 
+	/**
+	 * Obtém um {@link Builder}para a contribuição do tipo <t>int[]</t> informada
+	 * 
+	 * @param value
+	 *            A contribuição para o cálculo do <code>hashCode</code>
+	 * @return O {@link Builder} criado a partir da contribuição informada
+	 */
 	public static Builder hash(int[] values) {
 		return new IntArrayBuilder(SINGLE_SEED, values);
 	}
 
+	/**
+	 * Obtém um {@link Builder}para a contribuição do tipo <t>long</t> informada
+	 * 
+	 * @param value
+	 *            A contribuição para o cálculo do <code>hashCode</code>
+	 * @return O {@link Builder} criado a partir da contribuição informada
+	 */
 	public static Builder hash(long value) {
 		return new LongBuilder(SINGLE_SEED, value);
 	}
 
+	/**
+	 * Obtém um {@link Builder}para a contribuição do tipo <t>long[]</t> informada
+	 * 
+	 * @param value
+	 *            A contribuição para o cálculo do <code>hashCode</code>
+	 * @return O {@link Builder} criado a partir da contribuição informada
+	 */
 	public static Builder hash(long[] values) {
 		return new LongArrayBuilder(SINGLE_SEED, values);
 	}
 
+	/**
+	 * Obtém um {@link Builder}para a contribuição do tipo <t>Object</t> informada
+	 * 
+	 * @param value
+	 *            A contribuição para o cálculo do <code>hashCode</code>
+	 * @return O {@link Builder} criado a partir da contribuição informada
+	 */
 	public static Builder hash(Object value) {
 		return new ObjectBuilder(SINGLE_SEED, value);
 	}
 
+	/**
+	 * Obtém um {@link Builder}para a contribuição do tipo <t>Object[]</t> informada
+	 * 
+	 * @param value
+	 *            A contribuição para o cálculo do <code>hashCode</code>
+	 * @return O {@link Builder} criado a partir da contribuição informada
+	 */
 	public static Builder hash(Object[] values) {
 		return new ObjectArrayBuilder(SINGLE_SEED, values);
 	}
 
+	/**
+	 * Obtém um {@link Builder}para a contribuição do tipo <t>short</t> informada
+	 * 
+	 * @param value
+	 *            A contribuição para o cálculo do <code>hashCode</code>
+	 * @return O {@link Builder} criado a partir da contribuição informada
+	 */
 	public static Builder hash(short value) {
 		return new ShortBuilder(SINGLE_SEED, value);
 	}
 
+	/**
+	 * Obtém um {@link Builder}para a contribuição do tipo <t>short[]</t> informada
+	 * 
+	 * @param value
+	 *            A contribuição para o cálculo do <code>hashCode</code>
+	 * @return O {@link Builder} criado a partir da contribuição informada
+	 */
 	public static Builder hash(short[] values) {
 		return new ShortArrayBuilder(SINGLE_SEED, values);
 	}
