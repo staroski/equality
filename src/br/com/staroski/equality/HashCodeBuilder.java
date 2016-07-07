@@ -19,16 +19,13 @@ package br.com.staroski.equality;
  * 
  * class MyClass {
  * 
- *     private int      field1; // primitive
- *     private Object   field2; // object
- *     private String[] field3; // array
- *     
- *     public int hashCode(){
- *         return hash(field1)
- *                .and(field2)
- *                .and(field3)
- *                .hashCode();
- *     }
+ * 	private int field1; // primitive
+ * 	private Object field2; // object
+ * 	private String[] field3; // array
+ * 
+ * 	public int hashCode() {
+ * 		return hash(field1).and(field2).and(field3).hashCode();
+ * 	}
  * }
  * </pre>
  * 
@@ -39,11 +36,11 @@ package br.com.staroski.equality;
  * 
  * class MyClass {
  * 
- *     private int field;
- *     
- *     public int hashCode(){
- *         return hash(field).hashCode();
- *     }
+ * 	private int field;
+ * 
+ * 	public int hashCode() {
+ * 		return hash(field).hashCode();
+ * 	}
  * }
  * </pre>
  * 
@@ -54,7 +51,102 @@ package br.com.staroski.equality;
  */
 public abstract class HashCodeBuilder {
 
-	private static final class BooleanArrayBuilder extends HashCodeBuilder {
+	public static abstract class Builder {
+
+		protected final Number seed;
+
+		protected Builder(Number seed) {
+			this.seed = seed;
+		}
+
+		public Builder and(boolean value) {
+			return new BooleanBuilder(appendSeed(), value);
+		}
+
+		public Builder and(boolean[] values) {
+			return new BooleanArrayBuilder(appendSeed(), values);
+		}
+
+		public Builder and(byte value) {
+			return new ByteBuilder(appendSeed(), value);
+		}
+
+		public Builder and(byte[] values) {
+			return new ByteArrayBuilder(appendSeed(), values);
+		}
+
+		public Builder and(char value) {
+			return new CharBuilder(appendSeed(), value);
+		}
+
+		public Builder and(char[] values) {
+			return new CharArrayBuilder(appendSeed(), values);
+		}
+
+		public Builder and(double value) {
+			return new DoubleBuilder(appendSeed(), value);
+		}
+
+		public Builder and(double[] values) {
+			return new DoubleArrayBuilder(appendSeed(), values);
+		}
+
+		public Builder and(float value) {
+			return new FloatBuilder(appendSeed(), value);
+		}
+
+		public Builder and(float[] values) {
+			return new FloatArrayBuilder(appendSeed(), values);
+		}
+
+		public Builder and(int value) {
+			return new IntBuilder(appendSeed(), value);
+		}
+
+		public Builder and(int[] values) {
+			return new IntArrayBuilder(appendSeed(), values);
+		}
+
+		public Builder and(long value) {
+			return new LongBuilder(appendSeed(), value);
+		}
+
+		public Builder and(long[] values) {
+			return new LongArrayBuilder(appendSeed(), values);
+		}
+
+		public Builder and(Object value) {
+			return new ObjectBuilder(appendSeed(), value);
+		}
+
+		public Builder and(Object[] values) {
+			return new ObjectBuilder(appendSeed(), values);
+		}
+
+		public Builder and(short value) {
+			return new ShortBuilder(appendSeed(), value);
+		}
+
+		public Builder and(short[] values) {
+			return new ShortArrayBuilder(appendSeed(), values);
+		}
+
+		@Override
+		public final int hashCode() {
+			return hashCode(seed.intValue());
+		}
+
+		protected abstract int hashCode(int seed);
+
+		private Number appendSeed() {
+			if (seed == SINGLE_SEED) {
+				return Integer.valueOf(hashCode(HashCodeUtils.MULTI_VALUE));
+			}
+			return Integer.valueOf(hashCode(seed.intValue()));
+		}
+	}
+
+	private static final class BooleanArrayBuilder extends Builder {
 
 		private final boolean[] value;
 
@@ -69,7 +161,7 @@ public abstract class HashCodeBuilder {
 		}
 	}
 
-	private static final class BooleanBuilder extends HashCodeBuilder {
+	private static final class BooleanBuilder extends Builder {
 
 		private final boolean value;
 
@@ -84,7 +176,7 @@ public abstract class HashCodeBuilder {
 		}
 	}
 
-	private static final class ByteArrayBuilder extends HashCodeBuilder {
+	private static final class ByteArrayBuilder extends Builder {
 
 		private final byte[] value;
 
@@ -99,7 +191,7 @@ public abstract class HashCodeBuilder {
 		}
 	}
 
-	private static final class ByteBuilder extends HashCodeBuilder {
+	private static final class ByteBuilder extends Builder {
 
 		private final byte value;
 
@@ -114,7 +206,7 @@ public abstract class HashCodeBuilder {
 		}
 	}
 
-	private static final class CharArrayBuilder extends HashCodeBuilder {
+	private static final class CharArrayBuilder extends Builder {
 
 		private final char[] value;
 
@@ -129,7 +221,7 @@ public abstract class HashCodeBuilder {
 		}
 	}
 
-	private static final class CharBuilder extends HashCodeBuilder {
+	private static final class CharBuilder extends Builder {
 
 		private final char value;
 
@@ -144,7 +236,7 @@ public abstract class HashCodeBuilder {
 		}
 	}
 
-	private static final class DoubleArrayBuilder extends HashCodeBuilder {
+	private static final class DoubleArrayBuilder extends Builder {
 
 		private final double[] value;
 
@@ -159,7 +251,7 @@ public abstract class HashCodeBuilder {
 		}
 	}
 
-	private static final class DoubleBuilder extends HashCodeBuilder {
+	private static final class DoubleBuilder extends Builder {
 
 		private final double value;
 
@@ -174,7 +266,7 @@ public abstract class HashCodeBuilder {
 		}
 	}
 
-	private static final class FloatArrayBuilder extends HashCodeBuilder {
+	private static final class FloatArrayBuilder extends Builder {
 
 		private final float[] value;
 
@@ -189,7 +281,7 @@ public abstract class HashCodeBuilder {
 		}
 	}
 
-	private static final class FloatBuilder extends HashCodeBuilder {
+	private static final class FloatBuilder extends Builder {
 
 		private final float value;
 
@@ -204,7 +296,7 @@ public abstract class HashCodeBuilder {
 		}
 	}
 
-	private static final class IntArrayBuilder extends HashCodeBuilder {
+	private static final class IntArrayBuilder extends Builder {
 
 		private final int[] value;
 
@@ -219,7 +311,7 @@ public abstract class HashCodeBuilder {
 		}
 	}
 
-	private static final class IntBuilder extends HashCodeBuilder {
+	private static final class IntBuilder extends Builder {
 
 		private final int value;
 
@@ -234,7 +326,7 @@ public abstract class HashCodeBuilder {
 		}
 	}
 
-	private static final class LongArrayBuilder extends HashCodeBuilder {
+	private static final class LongArrayBuilder extends Builder {
 
 		private final long[] value;
 
@@ -249,7 +341,7 @@ public abstract class HashCodeBuilder {
 		}
 	}
 
-	private static final class LongBuilder extends HashCodeBuilder {
+	private static final class LongBuilder extends Builder {
 
 		private final long value;
 
@@ -264,7 +356,7 @@ public abstract class HashCodeBuilder {
 		}
 	}
 
-	private static final class ObjectArrayBuilder extends HashCodeBuilder {
+	private static final class ObjectArrayBuilder extends Builder {
 
 		private final Object[] value;
 
@@ -279,7 +371,7 @@ public abstract class HashCodeBuilder {
 		}
 	}
 
-	private static final class ObjectBuilder extends HashCodeBuilder {
+	private static final class ObjectBuilder extends Builder {
 
 		private final Object value;
 
@@ -294,7 +386,7 @@ public abstract class HashCodeBuilder {
 		}
 	}
 
-	private static final class ShortArrayBuilder extends HashCodeBuilder {
+	private static final class ShortArrayBuilder extends Builder {
 
 		private final short[] value;
 
@@ -309,7 +401,7 @@ public abstract class HashCodeBuilder {
 		}
 	}
 
-	private static final class ShortBuilder extends HashCodeBuilder {
+	private static final class ShortBuilder extends Builder {
 
 		private final short value;
 
@@ -324,170 +416,83 @@ public abstract class HashCodeBuilder {
 		}
 	}
 
-	// usando "new Number" para não obter um cache do "Number.valueOf"
+	// usando "new Number" para não obter um cache do "Integer.valueOf"
 	private static final Number SINGLE_SEED = new Integer(HashCodeUtils.SINGLE_VALUE);
 
-	public static HashCodeBuilder hash(boolean value) {
+	public static Builder hash(boolean value) {
 		return new BooleanBuilder(SINGLE_SEED, value);
 	}
 
-	public static HashCodeBuilder hash(boolean[] values) {
+	public static Builder hash(boolean[] values) {
 		return new BooleanArrayBuilder(SINGLE_SEED, values);
 	}
 
-	public static HashCodeBuilder hash(byte value) {
+	public static Builder hash(byte value) {
 		return new ByteBuilder(SINGLE_SEED, value);
 	}
 
-	public static HashCodeBuilder hash(byte[] values) {
+	public static Builder hash(byte[] values) {
 		return new ByteArrayBuilder(SINGLE_SEED, values);
 	}
 
-	public static HashCodeBuilder hash(char value) {
+	public static Builder hash(char value) {
 		return new CharBuilder(SINGLE_SEED, value);
 	}
 
-	public static HashCodeBuilder hash(char[] values) {
+	public static Builder hash(char[] values) {
 		return new CharArrayBuilder(SINGLE_SEED, values);
 	}
 
-	public static HashCodeBuilder hash(double value) {
+	public static Builder hash(double value) {
 		return new DoubleBuilder(SINGLE_SEED, value);
 	}
 
-	public static HashCodeBuilder hash(double[] values) {
+	public static Builder hash(double[] values) {
 		return new DoubleArrayBuilder(SINGLE_SEED, values);
 	}
 
-	public static HashCodeBuilder hash(float value) {
+	public static Builder hash(float value) {
 		return new FloatBuilder(SINGLE_SEED, value);
 	}
 
-	public static HashCodeBuilder hash(float[] values) {
+	public static Builder hash(float[] values) {
 		return new FloatArrayBuilder(SINGLE_SEED, values);
 	}
 
-	public static HashCodeBuilder hash(int value) {
+	public static Builder hash(int value) {
 		return new IntBuilder(SINGLE_SEED, value);
 	}
 
-	public static HashCodeBuilder hash(int[] values) {
+	public static Builder hash(int[] values) {
 		return new IntArrayBuilder(SINGLE_SEED, values);
 	}
 
-	public static HashCodeBuilder hash(long value) {
+	public static Builder hash(long value) {
 		return new LongBuilder(SINGLE_SEED, value);
 	}
 
-	public static HashCodeBuilder hash(long[] values) {
+	public static Builder hash(long[] values) {
 		return new LongArrayBuilder(SINGLE_SEED, values);
 	}
 
-	public static HashCodeBuilder hash(Object value) {
+	public static Builder hash(Object value) {
 		return new ObjectBuilder(SINGLE_SEED, value);
 	}
 
-	public static HashCodeBuilder hash(Object[] values) {
+	public static Builder hash(Object[] values) {
 		return new ObjectArrayBuilder(SINGLE_SEED, values);
 	}
 
-	public static HashCodeBuilder hash(short value) {
+	public static Builder hash(short value) {
 		return new ShortBuilder(SINGLE_SEED, value);
 	}
 
-	public static HashCodeBuilder hash(short[] values) {
+	public static Builder hash(short[] values) {
 		return new ShortArrayBuilder(SINGLE_SEED, values);
 	}
 
-	protected final Number seed;
-
-	private HashCodeBuilder(Number seed) {
-		this.seed = seed;
-	}
-
-	public HashCodeBuilder and(boolean value) {
-		return new BooleanBuilder(appendSeed(), value);
-	}
-
-	public HashCodeBuilder and(boolean[] values) {
-		return new BooleanArrayBuilder(appendSeed(), values);
-	}
-
-	public HashCodeBuilder and(byte value) {
-		return new ByteBuilder(appendSeed(), value);
-	}
-
-	public HashCodeBuilder and(byte[] values) {
-		return new ByteArrayBuilder(appendSeed(), values);
-	}
-
-	public HashCodeBuilder and(char value) {
-		return new CharBuilder(appendSeed(), value);
-	}
-
-	public HashCodeBuilder and(char[] values) {
-		return new CharArrayBuilder(appendSeed(), values);
-	}
-
-	public HashCodeBuilder and(double value) {
-		return new DoubleBuilder(appendSeed(), value);
-	}
-
-	public HashCodeBuilder and(double[] values) {
-		return new DoubleArrayBuilder(appendSeed(), values);
-	}
-
-	public HashCodeBuilder and(float value) {
-		return new FloatBuilder(appendSeed(), value);
-	}
-
-	public HashCodeBuilder and(float[] values) {
-		return new FloatArrayBuilder(appendSeed(), values);
-	}
-
-	public HashCodeBuilder and(int value) {
-		return new IntBuilder(appendSeed(), value);
-	}
-
-	public HashCodeBuilder and(int[] values) {
-		return new IntArrayBuilder(appendSeed(), values);
-	}
-
-	public HashCodeBuilder and(long value) {
-		return new LongBuilder(appendSeed(), value);
-	}
-
-	public HashCodeBuilder and(long[] values) {
-		return new LongArrayBuilder(appendSeed(), values);
-	}
-
-	public HashCodeBuilder and(Object value) {
-		return new ObjectBuilder(appendSeed(), value);
-	}
-
-	public HashCodeBuilder and(Object[] values) {
-		return new ObjectBuilder(appendSeed(), values);
-	}
-
-	public HashCodeBuilder and(short value) {
-		return new ShortBuilder(appendSeed(), value);
-	}
-
-	public HashCodeBuilder and(short[] values) {
-		return new ShortArrayBuilder(appendSeed(), values);
-	}
-
-	@Override
-	public final int hashCode() {
-		return hashCode(seed.intValue());
-	}
-
-	protected abstract int hashCode(int seed);
-
-	private Number appendSeed() {
-		if (seed == SINGLE_SEED) {
-			return Integer.valueOf(hashCode(HashCodeUtils.MULTI_VALUE));
-		}
-		return Integer.valueOf(hashCode(seed.intValue()));
+	// Construtor privado, classe utilit&aacute;ria n&atilde;o-instanciavel
+	private HashCodeBuilder() {
+		throw new UnsupportedOperationException(getClass().getName() + " can not be instantiated");
 	}
 }
