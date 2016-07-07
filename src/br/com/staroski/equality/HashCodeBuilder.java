@@ -90,8 +90,8 @@ public abstract class HashCodeBuilder {
 		 *            A contribuição a ser adicionada
 		 * @return Uma intância de {@link Builder}
 		 */
-		public Builder and(boolean[] values) {
-			return new BooleanArrayBuilder(appendSeed(), values);
+		public Builder and(boolean[] value) {
+			return new BooleanArrayBuilder(appendSeed(), value);
 		}
 
 		/**
@@ -112,8 +112,8 @@ public abstract class HashCodeBuilder {
 		 *            A contribuição a ser adicionada
 		 * @return Uma intância de {@link Builder}
 		 */
-		public Builder and(byte[] values) {
-			return new ByteArrayBuilder(appendSeed(), values);
+		public Builder and(byte[] value) {
+			return new ByteArrayBuilder(appendSeed(), value);
 		}
 
 		/**
@@ -134,8 +134,8 @@ public abstract class HashCodeBuilder {
 		 *            A contribuição a ser adicionada
 		 * @return Uma intância de {@link Builder}
 		 */
-		public Builder and(char[] values) {
-			return new CharArrayBuilder(appendSeed(), values);
+		public Builder and(char[] value) {
+			return new CharArrayBuilder(appendSeed(), value);
 		}
 
 		/**
@@ -156,8 +156,8 @@ public abstract class HashCodeBuilder {
 		 *            A contribuição a ser adicionada
 		 * @return Uma intância de {@link Builder}
 		 */
-		public Builder and(double[] values) {
-			return new DoubleArrayBuilder(appendSeed(), values);
+		public Builder and(double[] value) {
+			return new DoubleArrayBuilder(appendSeed(), value);
 		}
 
 		/**
@@ -178,8 +178,8 @@ public abstract class HashCodeBuilder {
 		 *            A contribuição a ser adicionada
 		 * @return Uma intância de {@link Builder}
 		 */
-		public Builder and(float[] values) {
-			return new FloatArrayBuilder(appendSeed(), values);
+		public Builder and(float[] value) {
+			return new FloatArrayBuilder(appendSeed(), value);
 		}
 
 		/**
@@ -200,8 +200,8 @@ public abstract class HashCodeBuilder {
 		 *            A contribuição a ser adicionada
 		 * @return Uma intância de {@link Builder}
 		 */
-		public Builder and(int[] values) {
-			return new IntArrayBuilder(appendSeed(), values);
+		public Builder and(int[] value) {
+			return new IntArrayBuilder(appendSeed(), value);
 		}
 
 		/**
@@ -222,8 +222,8 @@ public abstract class HashCodeBuilder {
 		 *            A contribuição a ser adicionada
 		 * @return Uma intância de {@link Builder}
 		 */
-		public Builder and(long[] values) {
-			return new LongArrayBuilder(appendSeed(), values);
+		public Builder and(long[] value) {
+			return new LongArrayBuilder(appendSeed(), value);
 		}
 
 		/**
@@ -244,8 +244,8 @@ public abstract class HashCodeBuilder {
 		 *            A contribuição a ser adicionada
 		 * @return Uma intância de {@link Builder}
 		 */
-		public Builder and(Object[] values) {
-			return new ObjectBuilder(appendSeed(), values);
+		public Builder and(Object[] value) {
+			return new ObjectBuilder(appendSeed(), value);
 		}
 
 		/**
@@ -266,8 +266,8 @@ public abstract class HashCodeBuilder {
 		 *            A contribuição a ser adicionada
 		 * @return Uma intância de {@link Builder}
 		 */
-		public Builder and(short[] values) {
-			return new ShortArrayBuilder(appendSeed(), values);
+		public Builder and(short[] value) {
+			return new ShortArrayBuilder(appendSeed(), value);
 		}
 
 		/**
@@ -587,8 +587,8 @@ public abstract class HashCodeBuilder {
 	 *            A contribuição para o cálculo do <code>hashCode</code>
 	 * @return O {@link Builder} criado a partir da contribuição informada
 	 */
-	public static Builder hash(boolean[] values) {
-		return new BooleanArrayBuilder(SINGLE_SEED, values);
+	public static Builder hash(boolean[] value) {
+		return new BooleanArrayBuilder(SINGLE_SEED, value);
 	}
 
 	/**
@@ -609,8 +609,8 @@ public abstract class HashCodeBuilder {
 	 *            A contribuição para o cálculo do <code>hashCode</code>
 	 * @return O {@link Builder} criado a partir da contribuição informada
 	 */
-	public static Builder hash(byte[] values) {
-		return new ByteArrayBuilder(SINGLE_SEED, values);
+	public static Builder hash(byte[] value) {
+		return new ByteArrayBuilder(SINGLE_SEED, value);
 	}
 
 	/**
@@ -631,8 +631,8 @@ public abstract class HashCodeBuilder {
 	 *            A contribuição para o cálculo do <code>hashCode</code>
 	 * @return O {@link Builder} criado a partir da contribuição informada
 	 */
-	public static Builder hash(char[] values) {
-		return new CharArrayBuilder(SINGLE_SEED, values);
+	public static Builder hash(char[] value) {
+		return new CharArrayBuilder(SINGLE_SEED, value);
 	}
 
 	/**
@@ -653,8 +653,8 @@ public abstract class HashCodeBuilder {
 	 *            A contribuição para o cálculo do <code>hashCode</code>
 	 * @return O {@link Builder} criado a partir da contribuição informada
 	 */
-	public static Builder hash(double[] values) {
-		return new DoubleArrayBuilder(SINGLE_SEED, values);
+	public static Builder hash(double[] value) {
+		return new DoubleArrayBuilder(SINGLE_SEED, value);
 	}
 
 	/**
@@ -675,8 +675,8 @@ public abstract class HashCodeBuilder {
 	 *            A contribuição para o cálculo do <code>hashCode</code>
 	 * @return O {@link Builder} criado a partir da contribuição informada
 	 */
-	public static Builder hash(float[] values) {
-		return new FloatArrayBuilder(SINGLE_SEED, values);
+	public static Builder hash(float[] value) {
+		return new FloatArrayBuilder(SINGLE_SEED, value);
 	}
 
 	/**
@@ -697,8 +697,8 @@ public abstract class HashCodeBuilder {
 	 *            A contribuição para o cálculo do <code>hashCode</code>
 	 * @return O {@link Builder} criado a partir da contribuição informada
 	 */
-	public static Builder hash(int[] values) {
-		return new IntArrayBuilder(SINGLE_SEED, values);
+	public static Builder hash(int[] value) {
+		return new IntArrayBuilder(SINGLE_SEED, value);
 	}
 
 	/**
@@ -719,8 +719,8 @@ public abstract class HashCodeBuilder {
 	 *            A contribuição para o cálculo do <code>hashCode</code>
 	 * @return O {@link Builder} criado a partir da contribuição informada
 	 */
-	public static Builder hash(long[] values) {
-		return new LongArrayBuilder(SINGLE_SEED, values);
+	public static Builder hash(long[] value) {
+		return new LongArrayBuilder(SINGLE_SEED, value);
 	}
 
 	/**
@@ -741,8 +741,8 @@ public abstract class HashCodeBuilder {
 	 *            A contribuição para o cálculo do <code>hashCode</code>
 	 * @return O {@link Builder} criado a partir da contribuição informada
 	 */
-	public static Builder hash(Object[] values) {
-		return new ObjectArrayBuilder(SINGLE_SEED, values);
+	public static Builder hash(Object[] value) {
+		return new ObjectArrayBuilder(SINGLE_SEED, value);
 	}
 
 	/**
@@ -763,8 +763,8 @@ public abstract class HashCodeBuilder {
 	 *            A contribuição para o cálculo do <code>hashCode</code>
 	 * @return O {@link Builder} criado a partir da contribuição informada
 	 */
-	public static Builder hash(short[] values) {
-		return new ShortArrayBuilder(SINGLE_SEED, values);
+	public static Builder hash(short[] value) {
+		return new ShortArrayBuilder(SINGLE_SEED, value);
 	}
 
 	// Construtor privado, classe utilit&aacute;ria n&atilde;o-instanciavel
