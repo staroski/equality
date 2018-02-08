@@ -90,7 +90,7 @@
  * </PRE>
  * 
  * <BR>
- * 3 - Podemos simplificar o c&oacute;digo acima mais ainda, utilizando a classe {@link br.com.staroski.equality.EqualityStrategy}.<BR>
+ * 3 - Podemos simplificar o c&oacute;digo acima mais ainda, utilizando a classe {@link br.com.staroski.equality.strategy.EqualityStrategy}.<BR>
  * Veja como fica o c&oacute;digo refatorado:
  * 
  * <PRE>

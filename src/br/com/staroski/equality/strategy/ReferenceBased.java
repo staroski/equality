@@ -1,4 +1,4 @@
-package br.com.staroski.equality;
+package br.com.staroski.equality.strategy;
 
 final class ReferenceBased extends EqualityStrategy {
 

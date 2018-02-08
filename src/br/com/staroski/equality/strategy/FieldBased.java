@@ -1,4 +1,4 @@
-package br.com.staroski.equality;
+package br.com.staroski.equality.strategy;
 
 import static br.com.staroski.equality.HashCodeUtils.*;
 import static br.com.staroski.equality.EqualsUtils.*;

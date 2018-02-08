@@ -1,10 +1,11 @@
-package br.com.staroski.equality;
+package br.com.staroski.equality.strategy;
 
 /**
  * Superclasse para criar estrat&eacute;gias de equival&ecirc;ncia para objetos.<BR>
- * Estas estrat&eacute;gias permitem a implementar os m&eacute;todos <code>hashCode</code> e <code>equals</code> de forma ainda mais f&aacute;cil do que usando as classes {@link EqualsUtils} e {@link HashCodeUtils}.<BR>
+ * Estas estrat&eacute;gias permitem a implementar os m&eacute;todos <code>hashCode</code> e <code>equals</code> de forma ainda mais f&aacute;cil do que usando as classes
+ * {@link br.com.staroski.equality.EqualsUtils} e {@link }.<BR>
  * <BR>
- * Abaixo est&aacute; uma classe que utiliza {@link EqualsUtils} e {@link HashCodeUtils}.
+ * Abaixo est&aacute; uma classe que utiliza {@link br.com.staroski.equality.EqualsUtils} e {@link }.
  * 
  * <PRE>
  * import static br.com.staroski.equality.EqualsUtils.*;
@@ -12,10 +13,10 @@ package br.com.staroski.equality;
  * 
  * class MyClass {
  * 
- *     private int      field1;
- *     private Object   field2;
+ *     private int field1;
+ *     private Object field2;
  *     private String[] field3;
- *  
+ * 
  *     public int hashCode() {
  *         int hash = MULTI_FIELD;
  *         hash = hash(hash, field1);
@@ -23,16 +24,14 @@ package br.com.staroski.equality;
  *         hash = hash(hash, field3);
  *         return hash;
  *     }
- *  
+ * 
  *     public boolean equals(Object object) {
  *         if (this == object) {
  *             return true;
  *         }
  *         if (object instanceof MyClass) {
  *             MyClass that = (MyClass) object;
- *             return equal(this.field1, that.field1)
- *                 && equal(this.field2, that.field2)
- *                 && equal(this.field3, that.field3);
+ *             return equal(this.field1, that.field1) && equal(this.field2, that.field2) && equal(this.field3, that.field3);
  *         }
  *         return false;
  *     }
@@ -47,12 +46,12 @@ package br.com.staroski.equality;
  * 
  * class MyClass {
  * 
- *     private int      field1;
- *     private Object   field2;
+ *     private int field1;
+ *     private Object field2;
  *     private String[] field3;
  * 
  *     private final EqualityStrategy strategy = fieldBased(this);
- *     
+ * 
  *     public int hashCode() {
  *         return strategy.hashCode();
  *     }
@@ -64,22 +63,24 @@ package br.com.staroski.equality;
  * </PRE>
  * 
  * <BR>
- * Esta classe disponibiliza tr&ecirc;s {@link EqualityStrategy estrat&eacute;gias} prontas baseadas na {@link #referenceBased(Object) refer&ecirc;ncia} do objeto, nos {@link #fieldBased(Object) atributos} do objeto e
- * em {@link #valueBased(ValueSupplier) valores} espec&iacute;ficos.<BR>
+ * Esta classe disponibiliza tr&ecirc;s {@link EqualityStrategy estrat&eacute;gias} prontas baseadas na {@link #referenceBased(Object) refer&ecirc;ncia} do objeto, nos {@link #fieldBased(Object)
+ * atributos} do objeto e em {@link #valueBased(ValueSupplier) valores} espec&iacute;ficos.<BR>
  * <BR>
  * Instancias desta classe possuem dois m&eacute;todos especiais: um para criar uma {@link EqualityStrategy estrat&eacute;gia} que mant&eacute;m um {@link #cached() cache} do <code>hashCode</code> da
  * {@link EqualityStrategy estrat&eacute;gia} original e outro m&eacute;todo para restaurar a {@link EqualityStrategy estrat&eacute;gia} original, isto &eacute;, {@link #uncached() sem o cache}.
  * 
  * @author Ricardo Artur Staroski
- * @see HashCodeUtils
- * @see EqualsUtils
+ * @see
+ * @see br.com.staroski.equality.EqualsUtils
  */
 public abstract class EqualityStrategy {
 
     /**
-     * Obt&eacute;m uma {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia} que calcula o <code>hashCode</code> e <code>equals</code> com base nos atributos declarados pelo objeto passado por parametro.
+     * Obt&eacute;m uma {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia} que calcula o <code>hashCode</code> e <code>equals</code> com base nos atributos declarados pelo objeto passado
+     * por parametro.
      * 
-     * @param object O objeto para o qual se deseja criar a {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia}.
+     * @param object
+     *            O objeto para o qual se deseja criar a {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia}.
      * @return Uma {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia} que calcula o <code>hashCode</code> e <code>equals</code> com base nos atributos do objeto.
      */
     public static EqualityStrategy fieldBased(Object object) {
@@ -87,9 +88,11 @@ public abstract class EqualityStrategy {
     }
 
     /**
-     * Obt&eacute;m uma {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia} que calcula o <code>hashCode</code> e <code>equals</code> baseado na refer&ecirc;ncia do objeto passado por parametro.
+     * Obt&eacute;m uma {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia} que calcula o <code>hashCode</code> e <code>equals</code> baseado na refer&ecirc;ncia do objeto passado por
+     * parametro.
      * 
-     * @param object O objeto para o qual se deseja criar a {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia}.
+     * @param object
+     *            O objeto para o qual se deseja criar a {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia}.
      * @return Uma {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia} que calcula o <code>hashCode</code> e <code>equals</code> com base na referencia do objeto.
      */
     public static EqualityStrategy referenceBased(Object object) {
@@ -99,7 +102,8 @@ public abstract class EqualityStrategy {
     /**
      * Obt&eacute;m uma {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia} que calcula o <code>hashCode</code> e <code>equals</code> baseado nos {@link ValueSupplier valores} informados.
      * 
-     * @param supplier O {@link ValueSupplier fornecedor de valores} para o qual se deseja criar a {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia}.
+     * @param supplier
+     *            O {@link ValueSupplier fornecedor de valores} para o qual se deseja criar a {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia}.
      * @return Uma {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia} que calcula o <code>hashCode</code> e <code>equals</code> baseado nos {@link ValueSupplier valores} informados.
      */
     public static EqualityStrategy valueBased(ValueSupplier supplier) {
@@ -117,7 +121,8 @@ public abstract class EqualityStrategy {
     }
 
     /**
-     * Obt&eacute;m uma {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia} que mant&eacute;m um cache do valor calculado para o <code>hashCode</code> da {@link EqualityStrategy estrat&eacute;gia} atual.
+     * Obt&eacute;m uma {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia} que mant&eacute;m um cache do valor calculado para o <code>hashCode</code> da {@link EqualityStrategy
+     * estrat&eacute;gia} atual.
      * 
      * @return Uma {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia} que mant&eacute;m um cache do <code>hashCode</code>.
      */
@@ -129,7 +134,8 @@ public abstract class EqualityStrategy {
     /**
      * Verifica se o objeto encapsulado por esta {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia} &eacute; equivalente ao objeto passado por parametro.
      * 
-     * @param object O objeto a ser comparado com o objeto encapsulado por esta {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia}.
+     * @param object
+     *            O objeto a ser comparado com o objeto encapsulado por esta {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia}.
      * @return <code>true</code> se forem equivalentes e <code>false</code> caso contr&aacute;rio.
      */
     public abstract boolean equals(Object object);
@@ -142,7 +148,8 @@ public abstract class EqualityStrategy {
     public abstract int hashCode();
 
     /**
-     * Se a {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia} atual mant&eacute;m um cache do valor calculado para o <code>hashCode</code>, obt&eacute;m a {@link EqualityStrategy estrat&eacute;gia} original.
+     * Se a {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia} atual mant&eacute;m um cache do valor calculado para o <code>hashCode</code>, obt&eacute;m a {@link EqualityStrategy
+     * estrat&eacute;gia} original.
      * 
      * @return A {@link EqualityStrategy estrat&eacute;gia de equival&ecirc;ncia} original.
      */

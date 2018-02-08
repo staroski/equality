@@ -1,10 +1,9 @@
 package br.com.staroski.equality;
 
-
 /**
  * Esta classe utilit&aacute;ria disponibiliza m&eacute;todos que permitem a constru&ccedil;&atilde;o f&aacute;cil de m&eacute;todos <code>hashCode</code>.<BR>
  * <BR>
- * <B>Obs:</B> Utilizar a classe {@link HashCodeBuilder} torna o c&oacute;digo mais leg&iacute;vel do que utilizar a classe {@link HashCodeUtils}.<BR> 
+ * <B>Obs:</B> Utilizar a classe {@link br.com.staroski.equality.builder.HashCodeBuilder} torna o c&oacute;digo mais leg&iacute;vel do que utilizar a classe {@link HashCodeUtils}.<BR>
  * <BR>
  * Regras para a implementa&ccedil;&atilde;o do <code>hashCode</code>:<BR>
  * - se uma classe sobrescreve o <code>equals</code>, ela deve sobrescrever o <code>hashCode</code> tamb&eacute;m;<BR>
@@ -22,11 +21,11 @@ package br.com.staroski.equality;
  * 
  * class MyClass {
  * 
- *     private int      field1; // primitive
- *     private Object   field2; // object
+ *     private int field1; // primitive
+ *     private Object field2; // object
  *     private String[] field3; // array
- *     
- *     public int hashCode(){
+ * 
+ *     public int hashCode() {
  *         int hash = MULTI_VALUE;
  *         hash = hash(hash, field1);
  *         hash = hash(hash, field2);
@@ -44,8 +43,8 @@ package br.com.staroski.equality;
  * class MyClass {
  * 
  *     private int field;
- *     
- *     public int hashCode(){
+ * 
+ *     public int hashCode() {
  *         return hash(SINGLE_VALUE, field);
  *     }
  * }
@@ -53,8 +52,8 @@ package br.com.staroski.equality;
  * 
  * @author Ricardo Artur Staroski
  * @see EqualsUtils
- * @see EqualityStrategy
- * @see HashCodeBuilder
+ * @see br.com.staroski.equality.strategy.EqualityStrategy
+ * @see br.com.staroski.equality.builder.HashCodeBuilder
  */
 public final class HashCodeUtils {
 
@@ -80,8 +79,10 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um valor <tt>boolean</tt>.
      * 
-     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
-     * @param value O valor do qual se deseja obter o <I>hash</I>.
+     * @param seed
+     *            A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param value
+     *            O valor do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
     public static int hash(final int seed, final boolean value) {
@@ -91,8 +92,10 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um array de <tt>boolean</tt>.
      * 
-     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
-     * @param array O array do qual se deseja obter o <I>hash</I>.
+     * @param seed
+     *            A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param array
+     *            O array do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
     public static int hash(final int seed, final boolean[] array) {
@@ -110,8 +113,10 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um valor <tt>byte</tt>.
      * 
-     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
-     * @param value O valor do qual se deseja obter o <I>hash</I>.
+     * @param seed
+     *            A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param value
+     *            O valor do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
     public static int hash(final int seed, final byte value) {
@@ -121,8 +126,10 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um array de <tt>byte</tt>.
      * 
-     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
-     * @param array O array do qual se deseja obter o <I>hash</I>.
+     * @param seed
+     *            A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param array
+     *            O array do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
     public static int hash(final int seed, final byte[] array) {
@@ -140,8 +147,10 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um valor <tt>char</tt>.
      * 
-     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
-     * @param value O valor do qual se deseja obter o <I>hash</I>.
+     * @param seed
+     *            A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param value
+     *            O valor do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
     public static int hash(final int seed, final char value) {
@@ -151,8 +160,10 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um array de <tt>char</tt>.
      * 
-     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
-     * @param array O array do qual se deseja obter o <I>hash</I>.
+     * @param seed
+     *            A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param array
+     *            O array do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
     public static int hash(final int seed, final char[] array) {
@@ -170,8 +181,10 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um valor <tt>double</tt>.
      * 
-     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
-     * @param value O valor do qual se deseja obter o <I>hash</I>.
+     * @param seed
+     *            A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param value
+     *            O valor do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
     public static int hash(final int seed, final double value) {
@@ -181,8 +194,10 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um array de <tt>double</tt>.
      * 
-     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
-     * @param array O array do qual se deseja obter o <I>hash</I>.
+     * @param seed
+     *            A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param array
+     *            O array do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
     public static int hash(final int seed, final double[] array) {
@@ -200,8 +215,10 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um valor <tt>float</tt>.
      * 
-     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
-     * @param value O valor do qual se deseja obter o <I>hash</I>.
+     * @param seed
+     *            A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param value
+     *            O valor do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
     public static int hash(final int seed, final float value) {
@@ -211,8 +228,10 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um array de <tt>float</tt>.
      * 
-     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
-     * @param array O array do qual se deseja obter o <I>hash</I>.
+     * @param seed
+     *            A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param array
+     *            O array do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
     public static int hash(final int seed, final float[] array) {
@@ -230,8 +249,10 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um valor <tt>int</tt>.
      * 
-     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
-     * @param value O valor do qual se deseja obter o <I>hash</I>.
+     * @param seed
+     *            A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param value
+     *            O valor do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
     public static int hash(final int seed, final int value) {
@@ -241,8 +262,10 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um array de <tt>int</tt>.
      * 
-     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
-     * @param array O array do qual se deseja obter o <I>hash</I>.
+     * @param seed
+     *            A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param array
+     *            O array do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
     public static int hash(final int seed, final int[] array) {
@@ -260,8 +283,10 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um valor <tt>long</tt>.
      * 
-     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
-     * @param value O valor do qual se deseja obter o <I>hash</I>.
+     * @param seed
+     *            A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param value
+     *            O valor do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
     public static int hash(final int seed, final long value) {
@@ -271,8 +296,10 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um array de <tt>long</tt>.
      * 
-     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
-     * @param array O array do qual se deseja obter o <I>hash</I>.
+     * @param seed
+     *            A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param array
+     *            O array do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
     public static int hash(final int seed, final long[] array) {
@@ -290,8 +317,10 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um <tt>Object</tt>.
      * 
-     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
-     * @param object O objeto do qual se deseja obter o <I>hash</I>.
+     * @param seed
+     *            A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param object
+     *            O objeto do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
     public static int hash(final int seed, final Object object) {
@@ -308,8 +337,10 @@ public final class HashCodeUtils {
      * Calcula o <I>hash</I> de um array de <tt>Object</tt>.<BR>
      * Vale lembrar que, independente do tipo de dado, <B>qualquer array com mais de uma dimens&atilde;o, &eacute; um array de <tt>Object</tt></B>.
      * 
-     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
-     * @param array O array do qual se deseja obter o <I>hash</I>.
+     * @param seed
+     *            A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param array
+     *            O array do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
     public static int hash(final int seed, final Object[] array) {
@@ -327,8 +358,10 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um valor <tt>short</tt>.
      * 
-     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
-     * @param value O valor do qual se deseja obter o <I>hash</I>.
+     * @param seed
+     *            A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param value
+     *            O valor do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
     public static int hash(final int seed, final short value) {
@@ -338,8 +371,10 @@ public final class HashCodeUtils {
     /**
      * Calcula o <I>hash</I> de um array de <tt>short</tt>.
      * 
-     * @param seed A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
-     * @param array O array do qual se deseja obter o <I>hash</I>.
+     * @param seed
+     *            A semente ({@link #MULTI_VALUE aditiva} ou {@link #SINGLE_VALUE n&atilde;o aditiva}) para o c&aacute;lulo do <I>hash</I>
+     * @param array
+     *            O array do qual se deseja obter o <I>hash</I>.
      * @return O valor <I>hash</I> calculado.
      */
     public static int hash(final int seed, final short[] array) {
@@ -356,15 +391,24 @@ public final class HashCodeUtils {
 
     // Calcula o hash de um Object assumindo que ele &eacute; um array.
     private static int hashArray(final int seed, final Object object) {
-        if (object instanceof byte[]) return hash(seed, (byte[]) object);
-        if (object instanceof boolean[]) return hash(seed, (boolean[]) object);
-        if (object instanceof short[]) return hash(seed, (short[]) object);
-        if (object instanceof char[]) return hash(seed, (char[]) object);
-        if (object instanceof int[]) return hash(seed, (int[]) object);
-        if (object instanceof float[]) return hash(seed, (float[]) object);
-        if (object instanceof long[]) return hash(seed, (long[]) object);
-        if (object instanceof double[]) return hash(seed, (double[]) object);
-        if (object instanceof Object[]) return hash(seed, (Object[]) object);
+        if (object instanceof byte[])
+            return hash(seed, (byte[]) object);
+        if (object instanceof boolean[])
+            return hash(seed, (boolean[]) object);
+        if (object instanceof short[])
+            return hash(seed, (short[]) object);
+        if (object instanceof char[])
+            return hash(seed, (char[]) object);
+        if (object instanceof int[])
+            return hash(seed, (int[]) object);
+        if (object instanceof float[])
+            return hash(seed, (float[]) object);
+        if (object instanceof long[])
+            return hash(seed, (long[]) object);
+        if (object instanceof double[])
+            return hash(seed, (double[]) object);
+        if (object instanceof Object[])
+            return hash(seed, (Object[]) object);
         throw new AssertionError("received non-array object {\n  object: " + object + "\n}");
     }
 

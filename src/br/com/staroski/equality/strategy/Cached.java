@@ -1,4 +1,4 @@
-package br.com.staroski.equality;
+package br.com.staroski.equality.strategy;
 
 final class Cached extends EqualityStrategy {
 

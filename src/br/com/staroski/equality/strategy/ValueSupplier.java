@@ -1,4 +1,4 @@
-package br.com.staroski.equality;
+package br.com.staroski.equality.strategy;
 
 /**
  * Interface para fornecer valores &agrave;s {@link EqualityStrategy estrat&eacute;gias} criadas pelo m&eacute;todo {@link EqualityStrategy#valueBased(ValueSupplier) valueBased(ValueSupplier)}.
