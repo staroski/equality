@@ -1,9 +1,11 @@
 package br.com.staroski.equality.strategy;
 
-import static br.com.staroski.equality.HashCodeUtils.*;
-import static br.com.staroski.equality.EqualsUtils.*;
+import static br.com.staroski.equality.EqualsUtils.equal;
+import static br.com.staroski.equality.HashCodeUtils.SINGLE_VALUE;
+import static br.com.staroski.equality.HashCodeUtils.hash;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,10 +16,9 @@ final class FieldBased extends EqualityStrategy {
     FieldBased(Object target) {
         super(target);
         final List<Field> usedFields = new ArrayList<Field>();
-        final Class<?> thisClass = getClass();
         final Field[] declaredFields = target.getClass().getDeclaredFields();
         for (Field field : declaredFields) {
-            if (!field.getType().isAssignableFrom(thisClass)) {
+            if (!isEqualityStrategy(field) && !isStatic(field)) {
                 field.setAccessible(true);
                 usedFields.add(field);
             }
@@ -51,5 +52,13 @@ final class FieldBased extends EqualityStrategy {
         } catch (IllegalAccessException e) {
             throw new SecurityException(e);
         }
+    }
+
+    private boolean isEqualityStrategy(Field field) {
+        return EqualityStrategy.class.isAssignableFrom(field.getType());
+    }
+
+    private boolean isStatic(Field field) {
+        return Modifier.isStatic(field.getModifiers());
     }
 }
